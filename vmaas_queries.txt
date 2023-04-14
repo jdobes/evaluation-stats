@@ -1,0 +1,3 @@
+select count(*) from (select pn.name, dc.cve_id  from package_name pn join oval_rpminfo_object o on o.package_name_id = pn.id join oval_rpminfo_test t on t.rpminfo_object_id = o.id join oval_definition_test dt on dt.rpminfo_test_id = t.id join oval_definition d on d.id = dt.definition_id join oval_definition_cve dc on dc.definition_id = d.id where d.definition_type_id = 2)t;
+822912
+
