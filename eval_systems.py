@@ -94,7 +94,7 @@ def main():
     with SqliteConnection(sqlite_file) as con:
         with SqliteCursor(con) as cur:
             try:
-                cur.execute(f"SELECT inventory_id, vmaas_json FROM system ORDER by RANDOM() LIMIT {system_limit}")
+                cur.execute(f"SELECT inventory_id, vmaas_json FROM system ORDER by inventory_id LIMIT {system_limit}")
                 system = cur.fetchone()
                 while system:
                     inventory_id, vmaas_json = system
